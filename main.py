@@ -3,59 +3,59 @@ from models.support_system import SupportSystem
 
 def meny():
     system = SupportSystem()
-    teller = 1
+    numerator = 1
 
     while True:
         print("\n--- IT SUPPORT SYSTEM ---")
-        print("1. Registrer sak")
-        print("2. Vis saker")
-        print("3. Oppdater status")
-        print("4. Avslutt sak")
-        print("5. Avslutt program")
+        print("1. Registrer case")
+        print("2. Show cases")
+        print("3. Update status")
+        print("4. Close case")
+        print("5. Close program")
 
-        valg = input("Velg et alternativ: ")
+        choice = input("Choose alternative: ")
 
-        if valg == "1":
-            beskrivelse = input("Beskriv problemet: ")
-            prioritet = input("Prioritet (Lav/Normal/Høy): ")
-            system.legg_til_sak(beskrivelse, teller, prioritet)
-            print("Sak registrert!")
-            teller += 1
+        if choice == "1":
+            description = input("Describe the issue: ")
+            priority = input("Priority (Low/Normal/High): ")
+            system.add_to_case(description, numerator, priority)
+            print("Case registerred!")
+            numerator += 1
 
-        elif valg == "2":
-            system.vis_saker()
+        elif choice == "2":
+            system.show_cases()
 
-        elif valg == "3":
+        elif choice == "3":
             try:
                 id = int(input("Oppgi ID: "))
-                sak = system.finn_sak(id)
-                if sak:
-                    ny_status = input("Ny status: ")
-                    sak.oppdater_status(ny_status)
+                case = system.find_case(id)
+                if case:
+                    new_status = input("New status: ")
+                    case.update_status(new_status)
                     print("Status oppdatert!")
                 else:
-                    print("Fant ikke sak.")
+                    print("Did not find case.")
             except ValueError:
-                print("Ugyldig input.")
+                print("Invalid input.")
 
-        elif valg == "4":
+        elif choice == "4":
             try:
-                id = int(input("Oppgi ID: "))
-                sak = system.finn_sak(id)
-                if sak:
-                    sak.avslutt_sak()
-                    print("Sak avsluttet!")
+                id = int(input("ID: "))
+                case = system.find_case(id)
+                if case:
+                    case.close_ticket()
+                    print("Case closed!")
                 else:
-                    print("Fant ikke sak.")
+                    print("Did not find case.")
             except ValueError:
-                print("Ugyldig input.")
+                print("Invalid input.")
 
-        elif valg == "5":
-            print("Program avsluttes...")
+        elif choice == "5":
+            print("Program closing...")
             break
 
         else:
-            print("Ugyldig valg")
+            print("Invalid choice.")
 
 
 if __name__ == "__main__":

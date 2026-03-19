@@ -1,23 +1,23 @@
-from models.support_sak import SupportSak
+from models.support_case import SupportCase
 
 
 class SupportSystem:
     def __init__(self):
-        self.saker = []
+        self.cases = []
 
-    def legg_til_sak(self, beskrivelse, id, prioritet):
-        sak = SupportSak(id, beskrivelse, prioritet)
-        self.saker.append(sak)
+    def add_to_case(self, description, id, priority):
+        case = SupportCase(id, description, priority)
+        self.cases.append(case)
 
-    def vis_saker(self):
-        if not self.saker:
-            print("Ingen saker registrert.")
+    def show_cases(self):
+        if not self.cases:
+            print("No cases registered.")
         else:
-            for sak in self.saker:
-                print(sak)
+            for case in self.cases:
+                print(case)
 
-    def finn_sak(self, id):
-        for sak in self.saker:
-            if sak.id == id:
-                return sak
+    def find_case(self, id):
+        for case in self.cases:
+            if case.id == id:
+                return case
         return None
