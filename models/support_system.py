@@ -1,11 +1,12 @@
 from models.support_sak import SupportSak
 
+
 class SupportSystem:
     def __init__(self):
         self.saker = []
 
-    def legg_til_sak(self, beskrivelse, id):
-        sak = SupportSak(id, beskrivelse)
+    def legg_til_sak(self, beskrivelse, id, prioritet):
+        sak = SupportSak(id, beskrivelse, prioritet)
         self.saker.append(sak)
 
     def vis_saker(self):

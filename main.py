@@ -1,5 +1,6 @@
 from models.support_system import SupportSystem
 
+
 def meny():
     system = SupportSystem()
     teller = 1
@@ -16,7 +17,8 @@ def meny():
 
         if valg == "1":
             beskrivelse = input("Beskriv problemet: ")
-            system.legg_til_sak(beskrivelse, teller)
+            prioritet = input("Prioritet (Lav/Normal/Høy): ")
+            system.legg_til_sak(beskrivelse, teller, prioritet)
             print("Sak registrert!")
             teller += 1
 
@@ -33,7 +35,7 @@ def meny():
                     print("Status oppdatert!")
                 else:
                     print("Fant ikke sak.")
-            except:
+            except ValueError:
                 print("Ugyldig input.")
 
         elif valg == "4":
@@ -45,7 +47,7 @@ def meny():
                     print("Sak avsluttet!")
                 else:
                     print("Fant ikke sak.")
-            except:
+            except ValueError:
                 print("Ugyldig input.")
 
         elif valg == "5":
