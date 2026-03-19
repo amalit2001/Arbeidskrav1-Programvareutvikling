@@ -1,0 +1,5 @@
+---
+## 📁 requirements.txt
+
+```txt
+# Ingen eksterne pakker nødvendig

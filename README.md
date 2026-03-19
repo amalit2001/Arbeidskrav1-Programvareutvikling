@@ -1,20 +1,30 @@
-# Arbeidskrav1-Programvareutvikling
-IT support system
+# Arbeidskrav 1 – Programvareutvikling
 
-# IT Support System
+## IT-support system
 
-Dette er et enkelt IT-supportsystem utviklet i Python.
+Dette prosjektet er utviklet som en del av arbeidskrav 1 i emnet Programvareutvikling.
 
-## Funksjoner
-- Registrere supportsak
-- Vise saker
-- Oppdatere status
-- Avslutte sak
+## Funksjonalitet
+
+Systemet lar brukeren:
+- registrere supportsaker
+- vise alle saker
+- oppdatere status
+- avslutte saker
+
+## Teknologi
+
+- Python
+- Objektorientert programmering (OOP)
+
+## Struktur
+
+- main.py – hovedprogram
+- models/ – inneholder klasser
+  - support_sak.py
+  - support_system.py
 
 ## Hvordan kjøre programmet
-
-1. Installer Python
-2. Kjør:
 
 ```bash
 python main.py
