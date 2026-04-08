@@ -2,29 +2,30 @@
 
 ## IT-support system
 
-Dette prosjektet er utviklet som en del av arbeidskrav 1 i emnet Programvareutvikling.
+Prosjektet er utviklet i henhold til Arbeidskrav 1 i Programvareutvikling.
 
 ## Funksjonalitet
 
-Systemet lar brukeren:
-- registrere supportsaker
+Systemet lar brukerene:
+- registere supportsaker
 - vise alle saker
 - oppdatere status
 - avslutte saker
+- lukke programmet
 
-## Teknologi
+## Teknologien som er brukt
 
 - Python
-- Objektorientert programmering (OOP)
+- OOP (Objektorientert programmering)
 
 ## Struktur
 
-- main.py – hovedprogram
-- models/ – inneholder klasser
-  - support_sak.py
+- main.py – hovedprogramet
+- models/ – inneholder klassene:
+  - support_case.py
   - support_system.py
 
-## Hvordan kjøre programmet
+## Hvordan man kjører programmet
 
 ```bash
 python main.py
