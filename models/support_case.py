@@ -1,5 +1,6 @@
 """This class represents a single support ticket in the system.
 It contains methods for updating and closing the ticket"""
+VALID_STATUSES = ["Open", "In Progress", "Closed"]
 class SupportCase:
     # Initializes a new support ticket
     # I included priority as it makes the system more realistic
@@ -11,7 +12,10 @@ class SupportCase:
 
     # Updates the status of the ticket (ex. Open, In Progress, Closed)
     def update_status(self, new_status):
+     if new_status in VALID_STATUSES:
         self.status = new_status
+     else:
+        print("Invalid status.")
 
     # Closes the ticket by setting the status to "Closed"
     def close_ticket(self):
