@@ -9,8 +9,8 @@ class SupportSystem:
         self.cases = []
 
     # Creates and adds a new support case to the system
-    def create_case(self, description, id, priority):
-        case = SupportCase(id, description, priority)
+    def create_case(self, description, case_id, priority):
+        case = SupportCase(case_id, description, priority)
         self.cases.append(case)
 
     # Prints all existing tickets in the system
@@ -24,8 +24,15 @@ class SupportSystem:
 
     # Searches for a ticket by its ID and returns it
     # If no given ID is found, it returns None
-    def find_case(self, id):
+    def find_case(self, case_id):
         for case in self.cases:
-            if case.id == id:
+            if case.id == case_id:
                 return case
         return None
+    
+    def delete_case(self, case_id):
+        case = self.find_case(case_id)
+        if case:
+               self.cases.remove(case)
+               return True
+        return False

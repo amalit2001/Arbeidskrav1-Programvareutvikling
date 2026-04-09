@@ -3,8 +3,8 @@ It contains methods for updating and closing the ticket"""
 class SupportCase:
     # Initializes a new support ticket
     # I included priority as it makes the system more realistic
-    def __init__(self, id, description, priority="Normal"):
-        self.id = id
+    def __init__(self, case_id, description, priority="Normal"):
+        self.id = case_id
         self.description = description
         self.status = "Open"
         self.priority = priority

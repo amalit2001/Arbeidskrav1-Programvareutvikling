@@ -15,7 +15,8 @@ def meny():
         print("2. Show cases")
         print("3. Update status")
         print("4. Close case")
-        print("5. Close program")
+        print("5. Delete case")
+        print("6. Close program")
         # User can select an option from the menu
         choice = input("Choose alternative: ")
 
@@ -48,8 +49,8 @@ def meny():
         # Closes selected ticket by changing the status to "Closed"
         elif choice == "4":
             try:
-                id = int(input("ID: "))
-                case = system.find_case(id)
+                case_id_input = int(input("ID: "))
+                case = system.find_case(case_id_input)
                 if case:
                     case.close_ticket()
                     print("Case closed!")
@@ -62,6 +63,14 @@ def meny():
 
         # Exits the program
         elif choice == "5":
+            print("Deleting case...")
+            case_id_input = int(input("ID: "))
+            if system.delete_case(case_id_input):
+                print("Case deleted!")
+            else:
+                print("Did not find case.")
+
+        elif choice == "6":
             print("Program closing...")
             break
 
