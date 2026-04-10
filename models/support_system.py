@@ -6,11 +6,13 @@ class SupportSystem:
 
     def __init__(self):
         self.cases = []
+        self.next_id = 1
 
     # Creates and adds a new support case to the system
-    def create_case(self, description, case_id, priority):
-        case = SupportCase(case_id, description, priority)
+    def create_case(self, description, priority):
+        case = SupportCase(self.next_id, description, priority)
         self.cases.append(case)
+        self.next_id += 1
 
     # Prints all existing tickets in the system
     # If no tickets exist, it will print a message saying "No cases registered."

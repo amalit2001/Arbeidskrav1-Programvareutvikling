@@ -10,7 +10,6 @@ from models.user import User
 # To make the program easy to use in the terminal, I used a simple menu system
 def menu():
     system = SupportSystem()
-    case_id = 1
 
     while True:
         # The user can choose to log in as either an employee or an IT admin
@@ -60,7 +59,7 @@ def menu():
             elif choice == "1" and current_user.is_employee():
                 description = input("Describe the issue: ")
                 priority = input("Priority (Low/Medium/High): ")
-                system.create_case(description, case_id, priority)
+                system.create_case(description, priority)
                 print("Case registered!")
                 case_id += 1
         
