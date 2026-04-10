@@ -8,7 +8,7 @@ from models.user import User
 
 # This function contains the main menu loop and user interaction
 # To make the program easy to use in the terminal, I used a simple menu system
-def meny():
+def menu():
     system = SupportSystem()
     case_id = 1
     current_user = User("Admin", "IT Administrator")
@@ -94,4 +94,4 @@ def meny():
 
 
 if __name__ == "__main__":
-    meny()
+    menu()
