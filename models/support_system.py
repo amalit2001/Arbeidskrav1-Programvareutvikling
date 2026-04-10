@@ -4,7 +4,6 @@ from models.support_case import SupportCase
 
 class SupportSystem:
 
-    # Initializes an empty list that all tickets will be stored in
     def __init__(self):
         self.cases = []
 

@@ -1,5 +1,6 @@
 """This class represents a single support ticket in the system.
 It contains methods for updating and closing the ticket"""
+
 VALID_STATUSES = ["Open", "In Progress", "Closed"]
 class SupportCase:
     # Initializes a new support ticket

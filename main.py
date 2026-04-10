@@ -12,7 +12,6 @@ def menu():
     system = SupportSystem()
     case_id = 1
 
-
     while True:
         # The user can choose to log in as either an employee or an IT admin
         print("Welcome to the IT Support System!")
