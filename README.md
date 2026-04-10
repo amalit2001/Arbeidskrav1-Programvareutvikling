@@ -12,7 +12,7 @@ Systemet lar brukerne:
 - oppdatere status
 - avslutte saker
 - slette saker
-- lukke programmet
+- logge ut av programmet
 
 ## Teknologien som er brukt
 
