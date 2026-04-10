@@ -22,6 +22,14 @@ class SupportSystem:
         else:
             for case in self.cases:
                 print(case)
+    
+    # Updates the status of a ticket by its ID
+    def update_case_status(self, case_id, new_status):
+        case = self.find_case(case_id)
+        if case:
+            case.update_status(new_status)
+            return True
+        return False
 
     # Searches for a ticket by its ID and returns it
     # If no given ID is found, it returns None
@@ -37,3 +45,4 @@ class SupportSystem:
                self.cases.remove(case)
                return True
         return False
+    

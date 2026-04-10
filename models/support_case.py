@@ -1,7 +1,9 @@
 """This class represents a single support ticket in the system.
 It contains methods for updating and closing the ticket"""
 
+VALID_PRIORITIES = ["Low", "Medium", "High"]
 VALID_STATUSES = ["Open", "In Progress", "Closed"]
+
 class SupportCase:
     # Initializes a new support ticket
     # I included priority as it makes the system more realistic

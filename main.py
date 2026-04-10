@@ -3,7 +3,7 @@ allowing the user to interact with the system.
 The program uses a simple menu to navigate between different functions
 Ensuring that the user can only update to valid statuses"""
 from models.support_system import SupportSystem
-from models.support_case import VALID_STATUSES
+from models.support_case import VALID_STATUSES, VALID_PRIORITIES
 from models.user import User
 
 # This function contains the main menu loop and user interaction
@@ -21,11 +21,12 @@ def menu():
         # Asking the user to select a role based on the menu options
         while True:
             role_choice = input("Select role: ")
+            name = input("Enter your name: ")
             if role_choice == "1":
-                current_user = User("User", "Employee")
+                current_user = User(name, "Employee")
                 break
             elif role_choice == "2":
-                current_user = User("User", "IT Admin")
+                current_user = User(name, "IT Admin")
                 break
             else:
                 print("Invalid choice, try again.")
@@ -58,11 +59,17 @@ def menu():
             # Adds a description of the issue and set the priority level
             elif choice == "1" and current_user.is_employee():
                 description = input("Describe the issue: ")
-                priority = input("Priority (Low/Medium/High): ")
+
+                while True:
+                    priority = input("Priority (Low/Medium/High): ")
+                    if priority in VALID_PRIORITIES:
+                        break
+                    else:
+                        print("Invalid priority, try again.")
+
                 system.create_case(description, priority)
                 print("Case registered!")
-                case_id += 1
-        
+
             #For admins:
             # Shows all existing tickets in the system to the IT admin
             elif choice == "2" and current_user.is_admin():
@@ -73,17 +80,15 @@ def menu():
             elif choice == "3" and current_user.is_admin():
                 try:
                     case_id_input = int(input("Write ID: "))
-                    case = system.find_case(case_id_input)
 
-                    if case:
-                        while True:
-                           new_status = input("New status (Open / In Progress / Closed): ")
-                           if new_status in VALID_STATUSES:
-                               case.update_status(new_status)
-                               print("Status updated!")
-                               break
-                           else:
-                               print("Invalid status, please try again")
+                    while True:
+                        new_status = input("New status (Open / In Progress / Closed): ")
+                        if new_status in VALID_STATUSES:
+                            break
+                        else:
+                            print("Invalid status, please try again")
+                    if system.update_case_status(case_id_input, new_status):
+                        print("Status updated!")
                     else:
                         print("Did not find case.")
                 except ValueError:
