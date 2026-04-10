@@ -89,7 +89,7 @@ def menu():
                     else:
                         print("Did not find case.")
                 except ValueError:
-                    print("You do not have permission or invalid choice.")
+                    print("Invalid input. Please enter a number.")
 
             # Closes selected ticket by changing the status to "Closed"
             elif choice == "4" and current_user.is_admin():
@@ -104,7 +104,7 @@ def menu():
 
                 # Handles the case where the user enters an invalid ID (not a number)
                 except ValueError:
-                    print("You do not have permission or invalid choice.")
+                    print("Invalid input. Please enter a number.")
 
             # Deletes a selected case
             elif choice == "5" and current_user.is_admin():
@@ -115,7 +115,7 @@ def menu():
                     else:
                         print("Did not find case.")
                 except ValueError:
-                    print("You do not have permission or invalid choice.")
+                    print("Invalid input. Please enter a number.")
 
             else:
                 print("Invalid choice.")
