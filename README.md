@@ -25,6 +25,7 @@ Systemet lar brukerne:
 - models/ – inneholder klassene:
   - support_case.py
   - support_system.py
+  - user.py
 
 ## Hvordan man kjører programmet
 
