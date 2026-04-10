@@ -11,7 +11,22 @@ from models.user import User
 def menu():
     system = SupportSystem()
     case_id = 1
-    current_user = User("Admin", "IT Administrator")
+
+    print("Choose role:")
+    print("1. Employee")
+    print("2. IT Admin")
+
+    while True:
+        role_choice = input("Select role: ")
+        if role_choice == "1":
+            current_user = User("EmployeeUser", "Employee")
+            break
+        elif role_choice == "2":
+            current_user = User("AdminUser", "IT Admin")
+            break
+        else:
+            print("Invalid choice, try again.")
+            
     # Loop keeps running until the user chooses to exit the program
     while True:
         print("\n--- IT SUPPORT SYSTEM ---")
