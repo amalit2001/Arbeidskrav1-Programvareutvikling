@@ -12,6 +12,7 @@ def menu():
     system = SupportSystem()
     case_id = 1
     # The user can choose to log in as either an employee or an IT admin
+    print("Welcome to the IT Support System!")
     print("Choose role:")
     print("1. Employee")
     print("2. IT Admin")
@@ -20,10 +21,10 @@ def menu():
     while True:
         role_choice = input("Select role: ")
         if role_choice == "1":
-            current_user = User("EmployeeUser", "Employee")
+            current_user = User("EmployeeUserName", "Employee")
             break
         elif role_choice == "2":
-            current_user = User("AdminUser", "IT Admin")
+            current_user = User("AdminUserName", "IT Admin")
             break
         else:
             print("Invalid choice, try again.")
@@ -46,7 +47,7 @@ def menu():
         # User can select an option from the menu
         choice = input("Choose alternative: ")
 
-        # Loggin out of the program for all users:
+        # Logging out of the program for all users:
         if choice == "0":
             print("Log out...")
             break
