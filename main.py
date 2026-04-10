@@ -4,15 +4,18 @@ The program uses a simple menu to navigate between different functions
 Ensuring that the user can only update to valid statuses"""
 from models.support_system import SupportSystem
 from models.support_case import VALID_STATUSES
+from models.user import User
 
 # This function contains the main menu loop and user interaction
 # To make the program easy to use in the terminal, I used a simple menu system
 def meny():
     system = SupportSystem()
     case_id = 1
+    current_user = User("Admin", "IT Administrator")
     # Loop keeps running until the user chooses to exit the program
     while True:
         print("\n--- IT SUPPORT SYSTEM ---")
+        print(f"Logged in as: {current_user.name} ({current_user.role})")
         print("1. Register case")
         print("2. Show cases")
         print("3. Update status")
@@ -42,7 +45,7 @@ def meny():
                 case = system.find_case(case_id_input)
 
                 if case:
-                   while True:
+                    while True:
                        new_status = input("New status (Open / In Progress / Closed): ")
                        if new_status in VALID_STATUSES:
                            case.update_status(new_status)
