@@ -12,10 +12,10 @@ class SupportCase:
 
     # Updates the status of the ticket (ex. Open, In Progress, Closed)
     def update_status(self, new_status):
-     if new_status in VALID_STATUSES:
-        self.status = new_status
-     else:
-        print("Invalid status.")
+        if new_status in VALID_STATUSES:
+            self.status = new_status
+        else:
+            print(f"Invalid status. Choose from: {VALID_STATUSES}")
 
     # Closes the ticket by setting the status to "Closed"
     def close_ticket(self):

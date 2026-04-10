@@ -6,11 +6,12 @@ Prosjektet er utviklet i henhold til Arbeidskrav 1 i Programvareutvikling.
 
 ## Funksjonalitet
 
-Systemet lar brukerene:
-- registere supportsaker
+Systemet lar brukerne:
+- registrere supportsaker
 - vise alle saker
 - oppdatere status
 - avslutte saker
+- slette saker
 - lukke programmet
 
 ## Teknologien som er brukt

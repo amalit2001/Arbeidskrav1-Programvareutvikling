@@ -1,7 +1,9 @@
 """The main entry point of the program,
 allowing the user to interact with the system.
-The program uses a simple menu to navigate between different functions"""
+The program uses a simple menu to navigate between different functions
+Ensuring that the user can only update to valid statuses"""
 from models.support_system import SupportSystem
+from models.support_case import VALID_STATUSES
 
 # This function contains the main menu loop and user interaction
 # To make the program easy to use in the terminal, I used a simple menu system
@@ -33,14 +35,21 @@ def meny():
             system.show_cases()
 
         # The user can update the status of a selected ticket
+        # The user needs to enter a valid ID and a valid status to update 
         elif choice == "3":
             try:
                 case_id_input = int(input("Write ID: "))
                 case = system.find_case(case_id_input)
+
                 if case:
-                    new_status = input("New status: ")
-                    case.update_status(new_status)
-                    print("Status updated!")
+                   while True:
+                       new_status = input("New status (Open / In Progress / Closed): ")
+                       if new_status in VALID_STATUSES:
+                           case.update_status(new_status)
+                           print("Status updated!")
+                           break
+                       else:
+                           print("Invalid status, please try again")
                 else:
                     print("Did not find case.")
             except ValueError:
@@ -61,15 +70,18 @@ def meny():
             except ValueError:
                 print("Invalid input.")
 
-        # Exits the program
+        # Deletes a selected case
         elif choice == "5":
-            print("Deleting case...")
-            case_id_input = int(input("ID: "))
-            if system.delete_case(case_id_input):
-                print("Case deleted!")
-            else:
-                print("Did not find case.")
+            try:
+                case_id_input = int(input("ID: "))
+                if system.delete_case(case_id_input):
+                    print("Case deleted!")
+                else:
+                    print("Did not find case.")
+            except ValueError:
+                print("Invalid input.")
 
+        # Exits the program
         elif choice == "6":
             print("Program closing...")
             break
