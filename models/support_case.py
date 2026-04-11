@@ -7,7 +7,7 @@ VALID_STATUSES = ["Open", "In Progress", "Closed"]
 class SupportCase:
     # Initializes a new support ticket
     # I included priority as it makes the system more realistic
-    def __init__(self, case_id, description, priority="Normal"):
+    def __init__(self, case_id, description, priority="Low"):
         self.id = case_id
         self.description = description
         self.status = "Open"
