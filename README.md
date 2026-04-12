@@ -12,7 +12,8 @@ Systemet lar brukerne:
 - oppdatere status
 - avslutte saker
 - slette saker
-- logge ut av programmet
+- logge inn (som rolle admin eller ansatt)
+- logge ut (av rollen som admin eller ansatt)
 
 ## Teknologien som er brukt
 
